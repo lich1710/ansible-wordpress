@@ -27,6 +27,10 @@ Using ansible to deploy wordpress with monitoring
 ```
 
 
+- To use graphite dashboard, you need to initilize wordpress first. Then go to Plugins and activate StatsD WordPress Client.
+This plugin collect metrics from Wordpress, report to StatsD and eventually sent to Graphite. 
+- For simple host metrics as: CPU, RAM, DISK usage and Apache + mySQL services up/down, I use ez server monitor. Access the dashboard at http://server_ip/esm
+
 ================================================================
 
 ## EXPLAIN ON THE PLAYBOOK 
@@ -35,7 +39,7 @@ Using ansible to deploy wordpress with monitoring
 
 ```
   db          //to install mysql database in mysql server
-  wordpress   //to install wordpress (apache, php, wp) in web server
+  wordpress   //to install wordpress (apache, php, wp) in web server. Access via http://server_ip
   esm         //to install dz server monitor v2.5 in web server. Access via http://server_ip/esm
   graphite    //to install graphite/statsd plugin for wp running as docker container in webserver. 
               //Access dashboard: http://13.229.84.27:8080/dashboard#Sample_DashBoard
