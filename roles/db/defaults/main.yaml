@@ -1,0 +1,5 @@
+---
+# This is the default variable for roles db
+wp_db_name: wp_db
+wp_db_user: wp_db_admin
+wp_db_passwd: th!sIsvErySecur3

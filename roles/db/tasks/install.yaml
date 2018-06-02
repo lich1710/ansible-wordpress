@@ -1,0 +1,11 @@
+---
+- name: check if mysql is installed
+  raw: "mysql --version"
+  register: mysql_install
+  ignore_errors: yes
+
+- name: install mysql
+  apt:
+    name: mysql-server
+    state: present
+  when: mysql_install | failed

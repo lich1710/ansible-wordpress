@@ -1,0 +1,8 @@
+---
+# This is the main tasks for db roles
+
+- name: Install mysql
+  include: install.yaml
+
+- name: configure mysql
+  include: configure.yaml
