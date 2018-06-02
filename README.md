@@ -50,7 +50,7 @@ This plugin collect metrics from Wordpress, report to StatsD and eventually sent
 - graphite/grafana running on Docker Container in the WebServer. You can reach each of services at:
 ```
 graphite: http://server_ip:8080
-grafana: http://server_ip:3000
+grafana: http://server_ip:3000 ( user/pass admin/admin )
 
 grafana can import data from graphite using endpoint hostname "graphite"
 ```
