@@ -1,0 +1,21 @@
+---
+- name: copy graphite docker file into host
+  copy:
+    src: graphite.zip
+    dest: ./graphite.zip
+- name: unzip graphite docker file
+  shell: unzip -o ./graphite.zip -d ./ && chmod +x compose.sh  
+
+- name: start graphite/grafana docker compose
+  command: ./compose.sh
+  async: 5
+  poll: 0
+
+- name: copy statsd wordpress plugin into host
+  copy:
+    src: statsd.0.2.zip
+    dest: ./statsd.zip
+- name: unzip statsd wordpress plugin
+  shell: unzip -o ./statsd.zip -d /var/www/html/wp-content/plugins/
+- name: clean up
+  shell: sudo rm -rf statsd.zip graphite.zip

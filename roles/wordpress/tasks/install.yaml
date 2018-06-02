@@ -26,6 +26,8 @@
   shell: sudo cp -r wordpress/* /var/www/html && rm -f /var/www/html/index.html
   notify:
     - restart apache
+- name: change folder permission on html folder
+  shell: sudo sudo chown -R www-data:www-data /var/www/html
 
 - name: clean up
   shell: rm -rf ./wordpress.tar.gz ./wordpress/

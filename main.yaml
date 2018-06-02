@@ -19,3 +19,10 @@
   roles:
     - role: esm
       tags: [ esm ]
+
+- name: setup monitoring using graphite/grafana
+  hosts: web
+  become: true
+  roles:
+    - role: graphite
+      tags: [ graphite ]

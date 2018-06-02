@@ -1,5 +1,5 @@
 [db]
-54.255.137.2 ansible_connection=ssh  ansible_user=ubuntu ansible_ssh_private_key_file=pub.pem
+52.221.237.255 ansible_connection=ssh  ansible_user=ubuntu ansible_ssh_private_key_file=pub.pem
 
 [web]
-54.255.137.2 ansible_connection=ssh  ansible_user=ubuntu ansible_ssh_private_key_file=pub.pem
+52.221.237.255 ansible_connection=ssh  ansible_user=ubuntu ansible_ssh_private_key_file=pub.pem
