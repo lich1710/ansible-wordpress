@@ -1,0 +1,31 @@
+---
+- name: install apache and php
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - php7.0
+    - php7.0-mysql
+    - libapache2-mod-php7.0
+    - php7.0-cli
+    - php7.0-cgi
+    - php7.0-gd
+    - apache2
+    - apache2-utils
+    - php-xml
+  notify:
+    - start apache
+
+- name: download wordpress
+  shell: wget -c http://wordpress.org/latest.tar.gz -O wordpress.tar.gz
+
+- name: unzip wordpress
+  shell: tar xzf ./wordpress.tar.gz -C ./
+
+- name: copy wordpress to apache www folder
+  shell: sudo cp -r wordpress/* /var/www/html && rm -f /var/www/html/index.html
+  notify:
+    - restart apache
+
+- name: clean up
+  shell: rm -rf ./wordpress.tar.gz ./wordpress/

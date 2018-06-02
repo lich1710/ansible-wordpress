@@ -1,0 +1,20 @@
+---
+- name: setup unzip
+  apt:
+    name: unzip
+    state: present
+
+- name: download esm
+  shell: wget https://www.ezservermonitor.com/esm-web/downloads/version/2.5 -O ./monitor.zip
+
+- name: unzip esm
+  shell: unzip ./monitor.zip -d ./
+
+- name: copy esm to www folder
+  shell: cp -R eZServerMonitor-2.5/ /var/www/html/
+
+- name: rename esm folder in /var/www/html
+  shell: mv /var/www/html/eZServerMonitor-2.5/ /var/www/html/esm/
+
+- name: clean up
+  shell: rm -rf ./monitor.zip eZServerMonitor-2.5/

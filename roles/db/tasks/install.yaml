@@ -6,6 +6,11 @@
 
 - name: install mysql
   apt:
-    name: mysql-server
+    name: "{{ item }}"
     state: present
+  loop:
+    - mysql-server
+    - python-mysqldb
   when: mysql_install | failed
+  notify:
+    - start mysql

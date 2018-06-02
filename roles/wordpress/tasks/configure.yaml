@@ -1,0 +1,8 @@
+---
+  #configuration for wordpress
+- name: copy wordpress config file
+  template:
+    src: wp-config.php.j2
+    dest: /var/www/html/wp-config.php
+  notify:
+    - restart apache

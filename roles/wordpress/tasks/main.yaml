@@ -1,0 +1,8 @@
+---
+  # This is the main tasks for role wordpress
+
+- name: Install apache, php, wordpress
+  include: install.yaml
+
+- name: configure wordpress
+  include: configure.yaml

@@ -1,0 +1,11 @@
+---
+- name: setup esm
+  include: download.yaml
+
+- name: copy esm config file
+  template:
+    src: esm.config.json.j2
+    dest: /var/www/html/esm/conf/esm.config.json
+    force: yes
+  notify:
+    - restart apache

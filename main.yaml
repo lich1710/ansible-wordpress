@@ -1,7 +1,21 @@
 ---
-- name: Configure mysql server
+- name: Setup mysql server
   hosts: db
   become: true
   roles:
     - role: db
       tags: [ db ]
+
+- name: Setup wordpress apache server
+  hosts: web
+  become: true
+  roles:
+    - role: wordpress
+      tags: [ wp ]
+
+- name: setup monitoring
+  hosts: web
+  become: true
+  roles:
+    - role: esm
+      tags: [ esm ]
